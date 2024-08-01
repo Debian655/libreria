@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>recordar</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}Enviar correo{% endblock %}
+{% block content %}
+
     <h1>Recuperar contraseña</h1>
 
     <div class="container">
@@ -17,12 +12,12 @@
 
             </div>
             <div class="form_button">
-                <a href="/auth/login">salir</a>
+                <a href={{ url_for('auth.login') }}>salir</a>
              <button>Enviar link</button>
             </div>
         </form>
     </div>
 
 
-</body>
+{% endblock %}
 </html>

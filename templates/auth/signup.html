@@ -1,13 +1,8 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sig up</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-</head>
-<body>
-
+{% extends 'base.html' %}
+{% block title %}Registrarse{% endblock %}
+{% block content %}
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <div class="container">
 
         <div class="form-content">
@@ -32,16 +27,17 @@
                 <input type="password" placeholder="contraseña" input type="password" required>
                 
             </div>
-            <p>Tienes una cuenta? <a href="/auth/login">Inicia sesion</a> </p>
+            <p>Tienes una cuenta? <a href={{ url_for('auth.login') }}>Inicia sesion</a> </p>
+           
         </div>
         <div class="btn-field">
             <input type="submit" value="registrate">
-             <button id="signIn" type="button" class="disable"> <a  href="/auth/login">Login</a>  </button>
+             <button id="signIn" type="button" class="disable"> <a  href={{ url_for('auth.login') }}>Login</a>  </button>
         </div>
     </form>
-
-        </div>
+        
+        
     </div>
-    
-</body>
+    {% endblock %}
+
 </html>
