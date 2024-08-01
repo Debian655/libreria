@@ -1,0 +1,41 @@
+version: "3.8"
+services:
+  db:
+    image: postgres
+    container_name: local_pgdb
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - local_pgdata:/var/lib/postgresql/data
+    networks:
+      xnet:
+        ipv4_address: 172.21.0.102
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin4_container
+    restart: always
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@projectx.com
+      PGADMIN_DEFAULT_PASSWORD: superSecret
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      xnet:
+        ipv4_address: 172.21.0.103
+
+volumes:
+  local_pgdata:
+  pgadmin-data:
+
+networks:
+  xnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.21.0.0/16
